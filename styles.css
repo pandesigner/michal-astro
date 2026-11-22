@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #edf4ef;
+  color: #17211c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(140px, 190px) minmax(0, 1fr);
+  column-gap: clamp(48px, 9vw, 144px);
+  align-content: center;
+  width: min(100% - 64px, 1200px);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(48px, 9vh, 104px) 0;
+}
+
+h1 {
+  grid-column: 2;
+  margin: 0 0 36px;
+  color: #17211c;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.085em;
+  line-height: 0.94;
+}
+
+nav {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  position: sticky;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding-left: 18px;
+  border-left: 1px solid #bdcdc2;
+}
+
+nav a {
+  width: fit-content;
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: #50635a;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+nav a:hover {
+  background: #dce9e0;
+  color: #17211c;
+}
+
+nav a:focus-visible {
+  outline: 2px solid #315d49;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  body {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    width: min(100% - 40px, 540px);
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(72px, 16vh, 144px) 0 48px;
+  }
+
+  h1 {
+    grid-column: 1;
+    margin-bottom: 32px;
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  nav {
+    grid-column: 1;
+    grid-row: auto;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 12px 0 0;
+    border-top: 1px solid #bdcdc2;
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav a {
+    transition: none;
+  }
+}
